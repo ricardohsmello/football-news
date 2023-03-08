@@ -23,7 +23,7 @@ $ ./gradlew quarkusDev
 ### Prerequisites
 - npm
 - angular-cli
-- 
+
 #### Usage
 ```
 $ cd frontend
