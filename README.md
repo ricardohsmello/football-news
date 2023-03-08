@@ -6,6 +6,7 @@ This is an project that shows the main football news in the world.
 - [`Java 19`](https://www.oracle.com/java/technologies/javase/19-0-2-relnotes.html/) - Language
 - [`Quarkus`](https://quarkus.io/) - Framework
 - [`Angular 15.2.1`](https://angular.io/) - Web Application Framework
+- [`Key Cloack`](https://www.keycloak.org/) - Access management
 
 ## Backend
 ### Prerequisites
