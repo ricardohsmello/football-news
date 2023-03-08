@@ -7,21 +7,29 @@ This is an project that shows the main football news in the world.
 - [`Quarkus`](https://quarkus.io/) - Framework
 - [`Angular 15.2.1`](https://angular.io/) - Web Application Framework
 
+## Backend
+### Prerequisites
+- docker-compose
+- gradle
+
+#### Usage
+```
+$ cd backend
+$ docker-compose up-d
+$ ./gradlew quarkusDev
+```
+
 ## Frontend
 ### Prerequisites
 - npm
 - angular-cli
-
-### Usage
-
+- 
+#### Usage
 ```
+$ cd frontend
 $ sudo apt install npm
 $ sudo npm i -g @angular/cli@latest
 $ sudo npm install keycloak-angular keycloak-js
-
-## Cloning the repo
-
-First of all we need clone the repo:
-```
-$ git clone https://github.com/ricardohsmello/football-news
+$ npm install
+$ ng serve --open
 ```
