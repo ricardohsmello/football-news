@@ -7,6 +7,7 @@ This is an project that shows the main football news in the world.
 - [`Quarkus`](https://quarkus.io/) - Framework
 - [`Angular 15.2.1`](https://angular.io/) - Web Application Framework
 - [`Key Cloack`](https://www.keycloak.org/) - Access management
+- [`PostgreSQL`](https://www.postgresql.org/) - Database
 
 ## Backend
 ### Prerequisites
