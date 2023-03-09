@@ -1,47 +1,35 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from './service/user-service.service';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { AppRoutingModule } from './app.routing';
+import { ComponentsModule } from './components/components.module';
 
-	export function initializeKeycloak(keycloak: KeycloakService) {
-		return () =>
-		keycloak.init({
-			config: {
-			url: 'http://localhost:8180/auth/',
-			realm: 'football',
-			clientId: 'frontend'
-			},
-		initOptions: {
-		onLoad: 'check-sso',
-		silentCheckSsoRedirectUri:
-			window.location.origin + '/assets/silent-check-sso.html'
-		}
-		});
-	}
+import { AppComponent } from './app.component';
 
-	@NgModule({
-	  declarations: [
-        AppComponent,
-        UserListComponent,  
-        UserFormComponent
-      ],
-		  imports: [AppRoutingModule, BrowserModule, HttpClientModule, FormsModule, KeycloakAngularModule],
-		  providers: [
-		    {
-		      provide: APP_INITIALIZER,
-		      useFactory: initializeKeycloak,
-		      multi: true,
-		      deps: [KeycloakService],
-		    },
-        UserService     
-		  ],
-		  bootstrap: [AppComponent]
-		})
-		export class AppModule {}
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
+@NgModule({
+  imports: [
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    ComponentsModule,
+    RouterModule,
+    AppRoutingModule,
+    NgbModule,
+    ToastrModule.forRoot()
+  ],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent
+
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
