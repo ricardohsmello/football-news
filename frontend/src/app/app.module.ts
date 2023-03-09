@@ -1,5 +1,5 @@
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -8,10 +8,24 @@ import { ToastrModule } from 'ngx-toastr';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
-
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+
+export function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+  keycloak.init({
+    config: {
+    url: 'http://localhost:8080',
+    realm: 'football',
+    clientId: 'frontend'
+    },
+  initOptions: {
+  onLoad: 'login-required',
+  silentCheckSsoRedirectUri:
+    window.location.origin + '/assets/silent-check-sso.html'
+  }
+  });
+}
 
 @NgModule({
   imports: [
@@ -22,6 +36,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     RouterModule,
     AppRoutingModule,
     NgbModule,
+    KeycloakAngularModule,
     ToastrModule.forRoot()
   ],
   declarations: [
@@ -29,7 +44,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AdminLayoutComponent
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
