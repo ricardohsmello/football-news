@@ -1,9 +1,9 @@
 package br.com.ricas.service;
 
 
-import br.com.ricas.domain.entity.User;
-import br.com.ricas.infrastructure.entity.UserEntity;
-import br.com.ricas.infrastructure.repository.UserRepository;
+import br.com.ricas.domain.entity.Team;
+import br.com.ricas.infrastructure.entity.TeamEntity;
+import br.com.ricas.infrastructure.repository.TeamRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -11,23 +11,22 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @ApplicationScoped
-public class UserService {
+public class TeamService {
 
     @Inject
-    private UserRepository userRepository;
+    private TeamRepository tamRepository;
     @Transactional
-    public UserEntity create(User user)  {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setEmail(user.getEmail());
-        userEntity.setName(user.getName());
+    public TeamEntity create(Team team)  {
+        TeamEntity teamEntity = new TeamEntity();
+        teamEntity.setName(team.getName());
 
-        userRepository.persist(userEntity);
+        tamRepository.persist(teamEntity);
 
-        return userEntity;
+        return teamEntity;
     }
     @Transactional
-    public List<UserEntity> list()  {
-        return userRepository.listAll();
+    public List<TeamEntity> list()  {
+        return tamRepository.listAll();
     }
 
 }

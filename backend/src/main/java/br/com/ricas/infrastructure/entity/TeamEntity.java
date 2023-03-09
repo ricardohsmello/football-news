@@ -7,13 +7,13 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "user_entity")
+@Table(name = "team_entity")
 public class TeamEntity extends PanacheEntity {
 
     private String name;
-    private String email;
 
-       public String getName() {
+
+    public String getName() {
         return name;
     }
 
@@ -21,13 +21,6 @@ public class TeamEntity extends PanacheEntity {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public TeamEntity() {}
 }

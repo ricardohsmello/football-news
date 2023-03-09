@@ -2,3 +2,5 @@
 
 # Compiled output
 /build
+.idea
+.gradle

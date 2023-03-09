@@ -20,8 +20,7 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     public UserEntity create(User user) {
 
-        UserEntity userEntity = userService.create(user);
-        return userEntity;
+        return userService.create(user);
     }
 
     @GET()

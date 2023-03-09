@@ -19,23 +19,6 @@ public class FootballNewsController {
     public String hello() {
         return "Hello from RESTEasy Reactive";
     }
-//
-//    @Path("/sub/corinthians")
-//    @GET()
-//    @Produces(MediaType.TEXT_PLAIN)
-//    public String corinthians() {
-//        User user = new User(" Ricardo");
-//        footballNewsService.subscribe(TeamEnum.CORINTHIANS, user);
-//        return "sub on Corinthians";
-//    }
-//    @Path("/sub/flamengo")
-//    @GET()
-//    @Produces(MediaType.TEXT_PLAIN)
-//    public String flamengo(){
-//        User user = new User("Adriano");
-//        footballNewsService.subscribe(TeamEnum.FLAMENGO, user);
-//        return "sub on Flamengo";
-//    }
 
     @Path("/news")
     @GET()
