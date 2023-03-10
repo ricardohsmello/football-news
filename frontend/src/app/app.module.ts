@@ -15,7 +15,7 @@ export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
   keycloak.init({
     config: {
-    url: 'http://localhost:8080',
+    url: 'http://localhost:8180',
     realm: 'football',
     clientId: 'frontend'
     },
@@ -50,8 +50,9 @@ export function initializeKeycloak(keycloak: KeycloakService) {
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService],
-    },
+    }    
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
