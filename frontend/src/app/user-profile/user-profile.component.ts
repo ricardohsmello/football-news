@@ -8,25 +8,28 @@ import { KeycloakService } from 'keycloak-angular';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  public isLogged = false;
+  public profile: KeycloakProfile | null = null;
 
   constructor(private readonly keycloak: KeycloakService) {}
 
-  public perfilUsuario: KeycloakProfile | null = null;
 
-  username = "undefined";
-  email = "undefined";
-  name = "undefined";
-  lastname = "undefined";
+  public username = "a";
+  public email = "b";
+  public name = "c";
+  public lastname = "d";
  
   async ngOnInit() {
 
-    var perfilUsuario = await this.keycloak.loadUserProfile();
-    // this.lastname = perfilUsuario.lastName;
-    // this.username = perfilUsuario.username;
-    this.email = perfilUsuario.email;
-    this.name = perfilUsuario.firstName;
-    console.log(perfilUsuario);
-  }
+    this.isLogged = await this.keycloak.isLoggedIn();
+
+    if (this.isLogged) {
+      this.profile = await this.keycloak.loadUserProfile(); 
+
+      this.name = this.profile.firstName;
+    }
+
+   }
  
 
 }
