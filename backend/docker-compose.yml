@@ -1,4 +1,10 @@
 services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "5432:5432"
   auth:
     image: quay.io/keycloak/keycloak
     ports:

@@ -9,6 +9,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
+import { TeamListComponent } from '../../team-list/team-list.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
     DashboardComponent,
     UserProfileComponent,
     NotificationsComponent,
+    TeamListComponent,
   ]
 })
 

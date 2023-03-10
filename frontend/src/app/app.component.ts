@@ -9,16 +9,11 @@ import { KeycloakProfile } from 'keycloak-js';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  implements OnInit {
-  constructor(private readonly keycloak: KeycloakService) {}
+  constructor() {}
 
-  public perfilUsuario: KeycloakProfile | null = null;
-
+ 
  public async ngOnInit() {
-    this.perfilUsuario = await this.keycloak.loadUserProfile();
-    console.log('ti passando auqi');
-    console.log(this.perfilUsuario);
-
-  }
+ }
 
   // title = 'Football news'
   // roles?: string[];

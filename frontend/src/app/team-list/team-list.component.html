@@ -1,0 +1,48 @@
+<div class="panel-header panel-header-lg">
+    <div class="header text-center">
+        <h2 class="title">Which teams do you want to receive news?</h2>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card  card-tasks">
+                <div class="card-header ">
+                    <h4 class="card-title">Teams</h4>
+                </div>
+                <div class="card-body" >
+                    <div class="table-full-width table-responsive">
+                        <table class="table">
+                            <tbody>
+                                <tr *ngFor="let team of teams">
+                                    <td class="text-left">{{ team.id }}</td>                                 
+                                    <td class="text-left">{{ team.name }}</td>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox" checked>
+                                            <span class="form-check-sign"></span>
+                                        </label>
+                                    </div>
+                                    <td class="td-actions text-right">
+                                        <button type="button" rel="tooltip" title=""
+                                            class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
+                                            data-original-title="Info">
+                                            <i class="now-ui-icons travel_info"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+          </div>
+        </div> -->
+            </div>
+        </div>
+    </div>
+</div>
