@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
+import { AppComponent } from '../app.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,6 +8,8 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  public appComponent: AppComponent;
   public lineBigDashboardChartType;
   public gradientStroke;
   public chartColor;
@@ -412,4 +415,5 @@ export class DashboardComponent implements OnInit {
 
     this.lineChartGradientsNumbersType = 'bar';
   }
+
 }

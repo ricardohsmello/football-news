@@ -1,4 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile } from 'keycloak-js';
 
 
 @Component({
@@ -6,6 +8,45 @@ import { Component} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  implements OnInit {
+  constructor(private readonly keycloak: KeycloakService) {}
 
+  public perfilUsuario: KeycloakProfile | null = null;
+
+ public async ngOnInit() {
+    this.perfilUsuario = await this.keycloak.loadUserProfile();
+    console.log('ti passando auqi');
+    console.log(this.perfilUsuario);
+
+  }
+
+  // title = 'Football news'
+  // roles?: string[];
+
+  // public isLogueado = false;
+  // public perfilUsuario: KeycloakProfile | null = null;
+
+  // constructor(private readonly keycloak: KeycloakService) {}
+
+  // public async ngOnInit() {
+ 
+  //   this.roles = this.keycloak.getUserRoles();
+
+  //   this.isLogueado = await this.keycloak.isLoggedIn();
+
+  //   if (this.isLogueado) {
+  //     this.perfilUsuario = await this.keycloak.loadUserProfile();
+  //   }
+  // }
+
+  // public isAdmin() {
+  //   return this.roles?.includes('football-news-producer')
+  // }
+  // public iniciarSesion() {
+  //   this.keycloak.login();
+  // }
+
+  // public cerrarSesion() {
+  //   this.keycloak.logout();
+  // }
 }
